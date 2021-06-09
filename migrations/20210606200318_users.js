@@ -3,6 +3,7 @@ exports.up = async function (knex) {
     table.increments("id").unique();
     table.string("username").unique().notNullable();
     table.string("password").notNullable();
+    table.timestamps(true, true);
   });
 };
 
