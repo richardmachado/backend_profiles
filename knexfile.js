@@ -1,5 +1,7 @@
 // Update with your config settings.
 
+DATABASE_URL = "postgres://hwxsazcyjtxwpz:7e0f22a4180fb79a4041e304dfd2917cf7472f02e219e9efa3618f01370e4147@ec2-34-230-115-172.compute-1.amazonaws.com:5432/d5t35roe4ctghn"
+
 module.exports = {
   development: {
     client: "sqlite3",
@@ -27,7 +29,7 @@ module.exports = {
 
   production: {
     client: "pg",
-    connection: `${process.env.DATABASE_URL}?ssl=no-verify`,
+    connection: `${DATABASE_URL}`,
     pool: {
       min: 2,
       max: 10,
@@ -38,3 +40,4 @@ module.exports = {
     seeds: { directory: "./seeds" },
   },
 };
+console.log("database", DATABASE_URL)
