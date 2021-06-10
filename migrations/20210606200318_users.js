@@ -18,12 +18,6 @@ exports.up = async function (knex) {
     .createTable("roles", (table) => {
       table.increments();
       table.string("role").notNullable();
-      table
-        .integer("permission_id")
-        .references("id")
-        .inTable("permissions")
-        .onDelete("CASCADE")
-        .onUpdate("CASCADE");
     })
 };
 
