@@ -4,16 +4,7 @@ exports.up = async function (knex) {
       table.increments("id").unique();
       table.string("username").unique().notNullable();
       table.string("password").notNullable();
-      table
-        .integer("role_id")
-        .notNullable()
-        .unsigned()
-        .defaultTo(1)
-        .references("id")
-        .inTable("roles")
-        .onUpdate("CASCADE")
-        .onDelete("CASCADE");
-      table.boolean("visible").defaultTo(1);
+
     })
     .createTable("roles", (table) => {
       table.increments();

@@ -10,7 +10,6 @@ exports.seed = function (knex) {
           username: "richard",
           password:
             "$2a$12$1GUEmXmakbPEZW.2cfEqausZoK5Dis3ZACj6hAztI9hH0GZJ85ZQG",
-          role_id: 3
         },
       ]);
     });
