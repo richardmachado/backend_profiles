@@ -12,7 +12,7 @@ exports.seed = function (knex) {
             "$2a$12$1GUEmXmakbPEZW.2cfEqausZoK5Dis3ZACj6hAztI9hH0GZJ85ZQG",
           first_name: "Richard",
           last_name: "Machado",
-          telephone: "619-555-8420"
+          telephone: "619-555-8420",
         },
       ]);
     });

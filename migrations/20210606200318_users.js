@@ -3,10 +3,13 @@ exports.up = async function (knex) {
     .createTable("users", (table) => {
       table.increments("id").unique();
       table.string("username").unique().notNullable();
-      table.string( "password" ).notNullable();
-      table.string( "first_name", 24 );
-      table.string( "last_name", 24 );
-      table.string( "telephone", 24 );
+      table.string("password").notNullable();
+      table.string("first_name", 24);
+      table.string("last_name", 24);
+      table.string("telephone", 24);
+    })
+    .createTable("posts", (table) => {
+      table.increments("id").unique();
     })
     .createTable("roles", (table) => {
       table.increments();
@@ -15,5 +18,8 @@ exports.up = async function (knex) {
 };
 
 exports.down = async function (knex) {
-  await knex.schema.dropTableIfExists("users").dropTableIfExists("roles");
+  await knex.schema
+    .dropTableIfExists("users")
+    .dropTableIfExists("posts")
+    .dropTableIfExists("roles");
 };
