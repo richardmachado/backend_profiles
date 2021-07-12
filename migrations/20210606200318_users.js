@@ -9,17 +9,20 @@ exports.up = async function (knex) {
       table.string("telephone", 24);
     })
     .createTable("posts", (table) => {
-      table.increments("id").unique();
-    })
-    .createTable("roles", (table) => {
-      table.increments();
-      table.string("role").notNullable();
+      table.increments("id").unique;
+      table.string("title", 24).notNullable();
+      table.string("body", 1024).notNullable();
+      table
+        .string("user_id")
+        .notNullable()
+        .unsigned()
+        .references("id")
+        .inTable("users")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
     });
 };
 
 exports.down = async function (knex) {
-  await knex.schema
-    .dropTableIfExists("users")
-    .dropTableIfExists("posts")
-    .dropTableIfExists("roles");
+  await knex.schema.dropTableIfExists("users").dropTableIfExists("posts");
 };
