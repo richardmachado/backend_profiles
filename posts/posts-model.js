@@ -25,4 +25,5 @@ module.exports = {
   insert,
   removePosts,
   getAllPosts,
+  getMyPosts,
 };
