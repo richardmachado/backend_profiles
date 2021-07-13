@@ -13,7 +13,7 @@ exports.up = async function (knex) {
       table.string("title", 24).notNullable();
       table.string("body", 1024).notNullable();
       table
-        .increments("user_id")
+        .integer("user_id")
         .notNullable()
         .unsigned()
         .references("id")
