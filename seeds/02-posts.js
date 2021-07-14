@@ -9,7 +9,7 @@ exports.seed = function (knex) {
           id: 1,
           title: "first post",
           body: "this is my first post for id #1",
-          user_id: 2,
+          user_id: 1,
         },
       ]);
     });
