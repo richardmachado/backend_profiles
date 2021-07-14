@@ -21,8 +21,7 @@ app.post("/", (req, res) => {
 app.get("/", (req, res) => {
   Post.getAllPosts()
     .then((posts) => {
-      res.json( posts );
-      console.log(posts)
+      res.json(posts);
     })
     .catch((err) => {
       console.log(err);
