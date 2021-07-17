@@ -31,4 +31,16 @@ app.get("/", (req, res) => {
 
 // get my posts
 
+app.get("/myposts/:id", (req, res) => {
+  const { id } = req.params;
+  Post.getMyPosts(id)
+    .then((posts) => {
+      res.json(posts);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ errorMessage: "Database failed to get posts. " });
+    });
+});
+
 module.exports = app;
