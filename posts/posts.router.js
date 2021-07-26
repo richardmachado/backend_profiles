@@ -15,7 +15,26 @@ app.post("/", (req, res) => {
     .catch((err) => {
       res.status(500).json({ Error: "failed to retrieve database", err });
     });
-});
+} );
+
+// delete a post
+app.delete( "/:id", ( req, res ) => {
+  const { id } = req.params;
+  Post.removePosts( id )
+  .then((deleted) => {
+    if (deleted) {
+      res.json({ removed: deleted });
+    } else {
+      res.status(404).json({ message: "No post with that id exists" });
+    }
+  })
+  .catch((err) => {
+    res
+      .status(500)
+      .json({ errorMessage: "Failed to delete temas. You done mest up" });
+  });
+})
+
 // get all posts
 
 app.get("/", (req, res) => {

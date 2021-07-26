@@ -20,13 +20,7 @@ async function getMyPosts(user_id) {
   return database("posts")
     .select("id", "title", "body", "user_id")
     .where({ user_id: user_id })
-    .then((posts) => {
-      if (posts) {
-        return posts;
-      } else {
-        return null;
-      }
-    });
+
 }
 
 module.exports = {
