@@ -19,8 +19,11 @@ function getAllPosts() {
 async function getMyPosts(user_id) {
   return database("posts")
     .select("id", "title", "body", "user_id")
-    .where({ user_id: user_id })
+    .where({ user_id: user_id });
+}
 
+function findPostById(id) {
+  return database("posts").where({ id });
 }
 
 module.exports = {
@@ -29,4 +32,5 @@ module.exports = {
   removePosts,
   getAllPosts,
   getMyPosts,
+  findPostById,
 };
